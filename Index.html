@@ -1,0 +1,2133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Infinite | Digital Innovation Experience</title>
+<style>
+:root{
+  --bg:#071638;--bg2:#0b2254;--ink:#f6fbff;--muted:#b9c8e6;--line:rgba(118,218,255,.18);
+  --cyan:#21d4ff;--blue:#3178ff;--teal:#38f2c2;--violet:#8f6bff;--orange:#ff7a4d;
+  --panel:rgba(255,255,255,.055);--panel2:rgba(12,48,116,.48);--shadow:0 26px 80px rgba(0,0,0,.28);
+  --page:min(1240px,calc(100% - 64px));--radius:28px;
+}
+*{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth} body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden;line-height:1.5}
+body:before{content:"";position:fixed;inset:0;z-index:-3;background:radial-gradient(circle at 16% 10%,rgba(33,212,255,.25),transparent 28%),radial-gradient(circle at 86% 8%,rgba(49,120,255,.22),transparent 24%),radial-gradient(circle at 50% 100%,rgba(56,242,194,.12),transparent 30%),linear-gradient(135deg,#071638 0%,#081c45 46%,#0b2254 100%)}
+body:after{content:"";position:fixed;inset:0;z-index:-2;opacity:.28;background-image:linear-gradient(rgba(111,231,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(111,231,255,.08) 1px,transparent 1px);background-size:78px 78px;mask-image:radial-gradient(circle at 50% 25%,black,transparent 75%)}
+a{color:inherit;text-decoration:none}.section{width:var(--page);margin:auto;padding:104px 0}.eyebrow{color:var(--cyan);text-transform:uppercase;letter-spacing:.24em;font-size:12px;font-weight:900;margin-bottom:16px}.kicker{font-size:14px;color:var(--muted);max-width:760px}.grad{background:linear-gradient(90deg,#fff,#c8f3ff 36%,#38cfff 66%,#fff);background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:flow 10s ease infinite}@keyframes flow{50%{background-position:100% center}}
+h1{font-size:clamp(48px,7vw,94px);line-height:.94;letter-spacing:-.055em;max-width:860px;margin-bottom:26px}h2{font-size:clamp(34px,5vw,66px);line-height:.98;letter-spacing:-.045em;margin-bottom:20px;max-width:820px}h3{letter-spacing:-.025em}.copy{color:var(--muted);font-size:17px;line-height:1.75;max-width:760px}.glass{background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border:1px solid var(--line);box-shadow:var(--shadow);backdrop-filter:blur(20px)}
+header{position:sticky;top:0;z-index:20;background:rgba(7,22,56,.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(111,231,255,.04)}.nav{width:var(--page);height:72px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}.logo{display:flex;align-items:center;gap:12px;font-weight:900}.mark{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#fff2,transparent),linear-gradient(135deg,var(--cyan),var(--blue));box-shadow:0 0 24px rgba(33,212,255,.24);transform:skew(-10deg)}nav{display:flex;gap:48px;font-size:12px;color:#a0afc0;align-items:center;letter-spacing:.35px;font-weight:500}nav a:not(.nav-dropdown>a){position:relative;padding:8px 0;text-transform:uppercase;transition:.25s;color:#a0afc0}nav a:not(.nav-dropdown>a):hover{color:#fff}.nav-dropdown{position:relative;display:flex;align-items:center}.nav-dropdown>a{position:relative;padding:8px 14px;text-transform:uppercase;color:#a0afc0;display:flex;align-items:center;gap:7px;transition:.25s;border-radius:6px}.nav-dropdown>a:after{content:"";width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.5;transition:.25s}.nav-dropdown:hover>a{color:#fff;background:rgba(255,255,255,.04)}.nav-dropdown:hover>a:after{opacity:.8}.dropdown-menu{position:absolute;top:calc(100% + 14px);left:-30px;min-width:280px;background:rgba(7,22,56,.75);border:1px solid rgba(111,231,255,.1);border-radius:10px;padding:14px 0;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .25s;z-index:100;backdrop-filter:blur(14px);margin:0 20px}.nav-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}.dropdown-menu a{display:block;padding:13px 20px;color:#a0afc0;font-size:11px;letter-spacing:.35px;text-transform:uppercase;font-weight:500;transition:.2s;position:relative;margin:4px 6px}.dropdown-menu a:hover{color:#fff;background:rgba(33,212,255,.07)}.cta{border:1px solid rgba(255,255,255,.08);border-radius:9999px;padding:12px 20px;background:rgba(255,255,255,.04);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:.3s ease}.cta:hover,.btn:hover{transform:translateY(-2px);border-color:rgba(33,212,255,.355)}
+.hero{width:var(--page);margin:auto;min-height:720px;display:grid;grid-template-columns:1fr .82fr;gap:56px;align-items:center;padding:70px 0}.hero p{color:var(--muted);font-size:19px;line-height:1.7;max-width:690px;margin-bottom:34px}.actions{display:flex;gap:14px;flex-wrap:wrap}.btn{border:1px solid var(--line);border-radius:999px;padding:15px 23px;cursor:pointer;transition:.25s;background:rgba(255,255,255,.04);color:#fff;font-weight:800}.btn.primary{border:0;color:#061737;background:linear-gradient(135deg,var(--cyan),var(--teal));box-shadow:0 18px 52px rgba(33,212,255,.28)}.orbital{height:510px;position:relative;border-radius:42px;overflow:hidden}.orbital:before{content:"";position:absolute;inset:12%;border-radius:50%;border:1px solid rgba(111,231,255,.22);box-shadow:0 0 70px rgba(33,212,255,.14),inset 0 0 70px rgba(33,212,255,.08);animation:spin 22s linear infinite}.orbital:after{content:"";position:absolute;inset:26%;border-radius:34px;background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.22),transparent 35%),linear-gradient(145deg,rgba(33,212,255,.28),rgba(49,120,255,.18));border:1px solid rgba(255,255,255,.22);box-shadow:0 0 70px rgba(33,212,255,.25)}@keyframes spin{to{transform:rotate(360deg)}}.node{position:absolute;width:126px;min-height:96px;border-radius:24px;padding:18px;text-align:center;font-size:13px;color:#eaf9ff;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.16);box-shadow:0 18px 50px rgba(0,0,0,.25);animation:float 5.5s ease-in-out infinite}.n1{left:8%;top:15%}.n2{right:8%;top:19%;animation-delay:-1.2s}.n3{left:12%;bottom:14%;animation-delay:-2.4s}.n4{right:14%;bottom:12%;animation-delay:-3.4s}@keyframes float{50%{transform:translateY(-14px)}}
+.focus{display:grid;grid-template-columns:.8fr 1.2fr;gap:46px;align-items:start}.focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.tile{border-radius:24px;padding:28px;min-height:210px;transition:.3s}.tile:hover,.news-card:hover,.cap-card:hover,.career-card:hover{transform:translateY(-8px);border-color:rgba(33,212,255,.5)}.num{font-size:36px;font-weight:950;color:var(--cyan);margin-bottom:28px}.tile p{color:var(--muted);font-size:15px;margin-top:12px}.spotlight{display:grid;grid-template-columns:1fr 1fr;gap:24px}.feature{border-radius:34px;padding:44px;min-height:420px;position:relative;overflow:hidden}.feature:before{content:"";position:absolute;right:-90px;bottom:-120px;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle,rgba(33,212,255,.28),transparent 68%)}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.stat{border-radius:24px;padding:28px}.stat b{display:block;font-size:40px;color:var(--cyan);line-height:1}.stat span{color:var(--muted);font-size:14px}.business{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.biz-card,.cap-card,.engage-card,.leader,.news-card,.impact-card,.career-card{border-radius:24px;padding:26px}.biz-card{min-height:245px}.biz-card small,.cap-card small{color:var(--cyan);font-weight:900}.biz-card p,.cap-card p,.engage-card p,.news-card p,.career-card p,.impact-card p{color:var(--muted);margin-top:12px;font-size:15px}.capabilities{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.cap-card{min-height:250px}.engagement{display:grid;grid-template-columns:1fr 1fr;gap:26px}.engage-card{min-height:310px;background:linear-gradient(145deg,rgba(33,212,255,.10),rgba(255,255,255,.025));position:relative;overflow:hidden}.engage-card:after{content:"";position:absolute;inset:auto 26px 26px 26px;height:4px;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--blue),transparent)}.leaders{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}.leader{min-height:118px;display:grid;place-items:center;text-align:center;color:#e5f5ff;font-weight:850}.news-grid{display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:18px}.news-card{min-height:270px;display:flex;flex-direction:column;justify-content:space-between}.tag{display:inline-flex;width:max-content;border-radius:999px;padding:8px 12px;background:rgba(33,212,255,.10);border:1px solid rgba(33,212,255,.22);font-size:12px;color:#c8f7ff}.career{display:grid;grid-template-columns:.95fr 1.05fr;gap:28px;align-items:stretch}.career-card{min-height:360px}.jobs{display:grid;gap:12px}.job{border-radius:18px;padding:18px 20px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);display:flex;justify-content:space-between;gap:16px;color:#eaf8ff}.impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.impact-card b{font-size:42px;color:var(--cyan);display:block}.impact-card span{color:var(--muted);font-size:14px}.footer{width:var(--page);margin:auto;padding:70px 0 34px;border-top:1px solid var(--line)}.foot-grid{display:grid;grid-template-columns:1.2fr repeat(3,.7fr);gap:30px}.foot-grid h4{margin-bottom:14px}.foot-grid a,.foot-grid p{display:block;color:var(--muted);font-size:14px;margin:9px 0}.copyright{margin-top:50px;padding-top:24px;border-top:1px solid rgba(255,255,255,.10);color:#8ea3c8;font-size:13px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:1040px){nav{display:none}.hero,.focus,.spotlight,.engagement,.career{grid-template-columns:1fr}.business,.capabilities,.impact-grid{grid-template-columns:repeat(2,1fr)}.leaders{grid-template-columns:repeat(3,1fr)}.news-grid{grid-template-columns:1fr}.orbital{height:430px}.section{padding:82px 0}}@media(max-width:680px){:root{--page:min(100% - 28px,640px)}.nav{height:auto;padding:16px 0}.cta{display:none}.hero{padding:54px 0;min-height:auto}.orbital{display:none}h1{font-size:46px}.focus-grid,.business,.capabilities,.leaders,.impact-grid,.foot-grid{grid-template-columns:1fr}.section{padding:66px 0}.feature{padding:28px}.stats{grid-template-columns:1fr}}
+
+/* =========================
+   MINIMAL INDUSTRY MARQUEE - FIND YOUR FOCUS
+========================= */
+.industry-focus{display:block;padding-top:88px;padding-bottom:84px}.focus-head{display:grid;grid-template-columns:minmax(0,.88fr) minmax(320px,.52fr);gap:34px;align-items:end;margin-bottom:30px}.focus-head h2{max-width:760px}.industry-shell{position:relative;border-radius:0;padding:18px 0 18px;overflow:hidden;background:transparent!important;box-shadow:none!important;border-top:0!important;border-bottom:0!important;border-left:1px solid rgba(111,231,255,.34)!important;border-right:1px solid rgba(111,231,255,.34)!important;backdrop-filter:none!important}.industry-shell:before,.industry-shell:after{content:"";position:absolute;top:0;bottom:0;width:118px;z-index:3;pointer-events:none}.industry-shell:before{left:0;background:linear-gradient(90deg,#071638 0%,rgba(7,22,56,.76) 38%,transparent)}.industry-shell:after{right:0;background:linear-gradient(270deg,#071638 0%,rgba(7,22,56,.76) 38%,transparent)}.industry-shell .industry-controls{position:absolute;right:22px;top:-50px;display:flex;justify-content:flex-end;gap:12px;padding:0;z-index:5}.industry-btn{height:42px;min-width:42px;border-radius:999px;border:1px solid rgba(111,231,255,.26);background:rgba(255,255,255,.035);color:#eaf9ff;font-weight:850;cursor:pointer;transition:.25s ease;box-shadow:none}.industry-btn:hover{transform:translateY(-2px);border-color:rgba(33,212,255,.58);background:rgba(33,212,255,.10);box-shadow:0 0 26px rgba(33,212,255,.14)}.industry-marquee{display:flex;width:max-content;gap:16px;animation:industryMarquee 38s linear infinite;will-change:transform}.industry-marquee.paused{animation-play-state:paused}.industry-row{display:flex;gap:16px;padding-left:16px}.industry-card{width:218px;min-height:122px;border-radius:20px;padding:16px 18px 15px;background:linear-gradient(145deg,rgba(255,255,255,.052),rgba(255,255,255,.018));border:1px solid rgba(111,231,255,.16);box-shadow:none;transition:.28s ease}.industry-card:hover{transform:translateY(-4px);border-color:rgba(33,212,255,.46);background:linear-gradient(145deg,rgba(33,212,255,.095),rgba(255,255,255,.024))}.industry-icon{width:38px;height:38px;border-radius:14px;display:grid;place-items:center;margin-bottom:12px;background:rgba(33,212,255,.08);border:1px solid rgba(111,231,255,.18);font-size:19px}.industry-card h3{font-size:18px;line-height:1.1;margin-bottom:7px}.industry-card p{font-size:12.6px;line-height:1.38;color:var(--muted)}@keyframes industryMarquee{to{transform:translateX(calc(-50% - 8px))}}@media(max-width:1040px){.industry-focus{padding-top:76px}.focus-head{grid-template-columns:1fr}.industry-card{width:210px}.industry-shell .industry-controls{position:relative;top:auto;right:auto;justify-content:flex-end;margin:0 10px 14px}}@media(max-width:680px){.industry-shell{border-radius:0}.industry-controls{justify-content:center;padding-bottom:14px}.industry-card{width:190px;min-height:126px;padding:15px}.industry-shell:before,.industry-shell:after{width:46px}}
+
+/* =========================
+   SPOTLIGHT IMAGE CAROUSEL - STRIPE-LIKE VISUAL SECTION
+   Applied to the existing Spotlight section
+========================= */
+#spotlight.spotlight-section{
+  width:100%;
+  padding-top:96px;
+  padding-bottom:104px;
+  overflow:hidden;
+}
+#spotlight .spotlight-top{
+  width:var(--page);
+  margin:0 auto 26px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:24px;
+  align-items:end;
+}
+#spotlight .spotlight-top h2{
+  margin-bottom:0;
+  max-width:720px;
+  font-size:clamp(34px,4.6vw,58px);
+}
+#spotlight .spotlight-nav{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+#spotlight .spot-btn{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  border:1px solid rgba(111,231,255,.22);
+  background:rgba(255,255,255,.055);
+  color:#eaf7ff;
+  font-size:24px;
+  line-height:1;
+  cursor:pointer;
+  transition:.25s ease;
+}
+#spotlight .spot-btn:hover{
+  transform:translateY(-2px);
+  border-color:rgba(33,212,255,.55);
+  background:rgba(33,212,255,.12);
+  box-shadow:0 0 28px rgba(33,212,255,.14);
+}
+#spotlight .spotlight-stage{
+  width:100%;
+  padding-left:max(32px,calc((100vw - 1240px)/2));
+  overflow:hidden;
+}
+#spotlight .spotlight-track{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  padding:4px max(32px,calc((100vw - 1240px)/2)) 12px 0;
+}
+#spotlight .spotlight-track::-webkit-scrollbar{display:none;}
+#spotlight .spot-card{
+  position:relative;
+  flex:0 0 300px;
+  height:360px;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.18);
+  background:#102448;
+  box-shadow:0 22px 70px rgba(0,0,0,.22);
+  isolation:isolate;
+  transition:flex-basis .35s ease, transform .35s ease, border-color .35s ease;
+}
+#spotlight .spot-card.is-large{flex-basis:620px;}
+#spotlight .spot-card.is-slim{flex-basis:86px;}
+#spotlight .spot-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(33,212,255,.48);
+}
+#spotlight .spot-img{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  transform:scale(1.02);
+  transition:transform .5s ease;
+}
+#spotlight .spot-card:hover .spot-img{transform:scale(1.07);}
+#spotlight .spot-card:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(180deg,transparent 35%,rgba(0,0,0,.78) 100%),
+    linear-gradient(90deg,rgba(5,18,48,.10),transparent 44%);
+}
+#spotlight .spot-content{
+  position:absolute;
+  left:22px;
+  right:18px;
+  bottom:18px;
+  z-index:2;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px;
+}
+#spotlight .spot-content h3{
+  font-size:17px;
+  line-height:1.15;
+  max-width:410px;
+  color:#fff;
+  text-shadow:0 3px 18px rgba(0,0,0,.45);
+}
+#spotlight .spot-arrow{
+  width:34px;
+  height:34px;
+  flex:0 0 34px;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.18);
+}
+#spotlight .is-slim .spot-content{
+  left:10px;
+  right:10px;
+  bottom:14px;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  align-items:center;
+}
+#spotlight .is-slim .spot-content h3{
+  font-size:13px;
+  max-height:250px;
+  max-width:none;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+#spotlight .is-slim .spot-arrow{display:none;}
+#spotlight .spot-progress{
+  position:absolute;
+  right:42px;
+  top:50%;
+  transform:translateY(-50%);
+  display:grid;
+  gap:9px;
+  z-index:5;
+}
+#spotlight .spot-progress span{
+  width:5px;
+  height:34px;
+  border-radius:999px;
+  background:rgba(255,255,255,.28);
+}
+#spotlight .spot-progress span.active{
+  background:linear-gradient(180deg,var(--cyan),var(--blue));
+  box-shadow:0 0 16px rgba(33,212,255,.45);
+}
+
+/* Abstract editorial image treatments */
+#spotlight .img-city{
+  background-image:
+    radial-gradient(circle at 65% 18%,rgba(255,222,145,.55),transparent 8%),
+    linear-gradient(180deg,rgba(223,194,140,.35),transparent 34%),
+    linear-gradient(90deg,rgba(10,18,28,.18),transparent 40%),
+    repeating-linear-gradient(90deg,transparent 0 44px,rgba(255,255,255,.16) 45px 47px,transparent 48px 92px),
+    linear-gradient(0deg,#8b5b2d 0 12%,#b6793b 12% 38%,#73522e 38% 52%,#bf7d3b 52% 72%,#708f86 72% 100%);
+}
+#spotlight .img-ocean{
+  background-image:
+    radial-gradient(circle at 68% 44%,rgba(255,255,255,.95),transparent 8%),
+    radial-gradient(circle at 45% 42%,rgba(255,255,255,.72),transparent 12%),
+    repeating-linear-gradient(135deg,rgba(255,255,255,.22) 0 3px,transparent 4px 18px),
+    linear-gradient(135deg,#063b4b 0%,#0b706f 48%,#d8f8ff 51%,#173d38 100%);
+}
+#spotlight .img-leader{
+  background-image:
+    radial-gradient(circle at 55% 35%,#ffd7b0 0 9%,transparent 10%),
+    radial-gradient(circle at 48% 32%,rgba(255,255,255,.72),transparent 1.2%),
+    radial-gradient(circle at 60% 32%,rgba(255,255,255,.72),transparent 1.2%),
+    linear-gradient(120deg,rgba(60,34,22,.8),transparent 42%),
+    linear-gradient(180deg,#40261f 0%,#8a5d45 42%,#181014 100%);
+}
+#spotlight .img-mobile{
+  background-image:
+    radial-gradient(ellipse at 60% 28%,rgba(255,255,255,.96),transparent 18%),
+    linear-gradient(90deg,transparent 0 45%,#f8fbff 46% 66%,#101a28 67% 70%,transparent 71%),
+    linear-gradient(180deg,#6d7d45,#d8e6d0 48%,#34261d 100%);
+}
+#spotlight .img-blue{
+  background-image:
+    repeating-linear-gradient(90deg,#1039bb 0 14px,#e7f0ff 15px 20px,#0d2a8b 21px 34px),
+    linear-gradient(180deg,#153e96,#091a47);
+}
+#spotlight .img-sand{
+  background-image:
+    linear-gradient(90deg,#6c5140,#c2a186 40%,#f4eadf 55%,#5f4637),
+    radial-gradient(circle at 44% 28%,rgba(255,255,255,.56),transparent 18%);
+}
+@media(max-width:900px){
+  #spotlight .spotlight-top{grid-template-columns:1fr;}
+  #spotlight .spotlight-nav{justify-content:flex-start;}
+  #spotlight .spot-card{flex-basis:270px;height:320px;}
+  #spotlight .spot-card.is-large{flex-basis:78vw;}
+  #spotlight .spot-card.is-slim{flex-basis:270px;}
+  #spotlight .is-slim .spot-content{writing-mode:horizontal-tb;transform:none;left:20px;right:18px;align-items:flex-end;}
+  #spotlight .is-slim .spot-content h3{white-space:normal;font-size:16px;}
+  #spotlight .is-slim .spot-arrow{display:grid;}
+  #spotlight .spot-progress{display:none;}
+}
+@media(max-width:680px){
+  #spotlight.spotlight-section{padding-top:72px;padding-bottom:76px;}
+  #spotlight .spotlight-stage{padding-left:14px;}
+  #spotlight .spotlight-track{padding-right:14px;gap:14px;}
+  #spotlight .spot-card,#spotlight .spot-card.is-large,#spotlight .spot-card.is-slim{flex-basis:82vw;height:300px;}
+}
+
+
+
+/* =========================
+   SPOTLIGHT LAYOUT FIX - CONTAINED OVERLAP SLIDER
+   Keeps the Stripe-like overlap look but fits fully inside page layout.
+========================= */
+#spotlight.spotlight-section{
+  width:var(--page) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  padding:96px 0 104px !important;
+  overflow:hidden !important;
+}
+#spotlight .spotlight-top{
+  width:100% !important;
+  margin:0 0 26px !important;
+}
+#spotlight .spotlight-stage{
+  width:100% !important;
+  max-width:100% !important;
+  padding-left:0 !important;
+  padding-right:0 !important;
+  overflow:hidden !important;
+  position:relative !important;
+}
+#spotlight .spotlight-track{
+  width:100% !important;
+  max-width:100% !important;
+  display:flex !important;
+  gap:0 !important;
+  overflow-x:auto !important;
+  overflow-y:hidden !important;
+  scroll-behavior:smooth !important;
+  scrollbar-width:none !important;
+  padding:4px 0 16px 0 !important;
+  scroll-snap-type:x mandatory;
+}
+#spotlight .spotlight-track::-webkit-scrollbar{display:none;}
+#spotlight .spot-card{
+  flex:0 0 clamp(210px,23vw,286px) !important;
+  height:clamp(300px,31vw,390px) !important;
+  margin-right:16px !important;
+  border-radius:16px !important;
+  scroll-snap-align:start;
+}
+#spotlight .spot-card.is-large{
+  flex-basis:clamp(480px,49vw,620px) !important;
+}
+#spotlight .spot-card.is-slim{
+  flex-basis:clamp(54px,5.6vw,74px) !important;
+  margin-left:-2px !important;
+}
+#spotlight .spot-card:last-child{margin-right:0 !important;}
+#spotlight .spot-progress{
+  right:16px !important;
+}
+#spotlight .spotlight-nav{
+  justify-content:flex-end;
+}
+@media(max-width:1040px){
+  #spotlight.spotlight-section{padding:82px 0 !important;}
+  #spotlight .spot-card,
+  #spotlight .spot-card.is-large,
+  #spotlight .spot-card.is-slim{
+    flex-basis:calc((100% - 16px)/2) !important;
+    height:320px !important;
+    margin-right:16px !important;
+  }
+  #spotlight .is-slim .spot-content{
+    writing-mode:horizontal-tb !important;
+    transform:none !important;
+    left:20px !important;
+    right:18px !important;
+    align-items:flex-end !important;
+  }
+  #spotlight .is-slim .spot-content h3{
+    white-space:normal !important;
+    font-size:16px !important;
+  }
+  #spotlight .is-slim .spot-arrow{display:grid !important;}
+  #spotlight .spot-progress{display:none !important;}
+}
+@media(max-width:680px){
+  #spotlight.spotlight-section{padding:66px 0 76px !important;}
+  #spotlight .spotlight-top{grid-template-columns:1fr !important;}
+  #spotlight .spotlight-nav{justify-content:flex-start !important;}
+  #spotlight .spot-card,
+  #spotlight .spot-card.is-large,
+  #spotlight .spot-card.is-slim{
+    flex-basis:88% !important;
+    height:300px !important;
+  }
+}
+
+
+/* =========================
+   CORE BUSINESS STORY CAROUSEL - STRIPE-STYLE FITTED LAYOUT
+========================= */
+#innovation.innovation-stories{
+  width:var(--page);
+  margin:auto;
+  padding:96px 0 104px;
+  overflow:hidden;
+}
+.innovation-head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:24px;
+  align-items:end;
+  margin-bottom:28px;
+}
+.innovation-head h2{
+  max-width:820px;
+  margin-bottom:0;
+  font-size:clamp(34px,4.4vw,58px);
+}
+.innovation-nav{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:flex-end;
+}
+.innovation-btn{
+  width:46px;
+  height:46px;
+  border-radius:10px;
+  border:1px solid rgba(111,231,255,.24);
+  background:rgba(255,255,255,.05);
+  color:#dcecff;
+  font-size:22px;
+  cursor:pointer;
+  transition:.25s ease;
+}
+.innovation-btn.primary-nav{
+  color:#fff;
+  background:linear-gradient(135deg,rgba(33,212,255,.18),rgba(49,120,255,.20));
+  border-color:rgba(111,231,255,.34);
+}
+.innovation-btn:hover{
+  transform:translateY(-2px);
+  border-color:rgba(33,212,255,.58);
+  background:rgba(33,212,255,.12);
+  box-shadow:0 0 26px rgba(33,212,255,.14);
+}
+.core-story-stage{
+  width:100%;
+  overflow:hidden;
+  position:relative;
+}
+.core-story-track{
+  display:flex;
+  gap:22px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  scroll-snap-type:x mandatory;
+  padding:2px 2px 10px;
+}
+.core-story-track::-webkit-scrollbar{display:none;}
+.core-story-card{
+  flex:0 0 clamp(262px,31vw,330px);
+  scroll-snap-align:start;
+}
+.core-story-visual{
+  height:clamp(300px,34vw,430px);
+  border-radius:8px;
+  overflow:hidden;
+  position:relative;
+  border:1px solid rgba(255,255,255,.16);
+  background:#071638;
+  box-shadow:0 22px 62px rgba(0,0,0,.22);
+  display:grid;
+  place-items:center;
+  isolation:isolate;
+}
+.core-story-visual:before,
+.core-story-visual:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+}
+.core-story-visual:after{
+  background:linear-gradient(180deg,transparent 62%,rgba(2,8,24,.42) 100%);
+}
+.visual-mark{
+  font-size:clamp(52px,7vw,92px);
+  line-height:1;
+  font-weight:950;
+  letter-spacing:-.08em;
+  color:#fff;
+  text-shadow:0 18px 44px rgba(0,0,0,.32);
+}
+.visual-revenue:before{
+  background:
+    radial-gradient(circle at 48% 26%,rgba(255,92,126,.92),transparent 10%),
+    radial-gradient(circle at 30% 42%,rgba(33,212,255,.78),transparent 12%),
+    radial-gradient(circle at 68% 42%,rgba(49,120,255,.74),transparent 12%),
+    radial-gradient(circle at 38% 66%,rgba(143,107,255,.74),transparent 13%),
+    radial-gradient(circle at 60% 66%,rgba(255,122,77,.76),transparent 12%),
+    linear-gradient(180deg,#040817 0%,#27166a 55%,#6540ad 100%);
+  filter:saturate(1.1);
+}
+.visual-ops:before{
+  background:
+    repeating-linear-gradient(128deg,rgba(255,255,255,.18) 0 3px,transparent 4px 20px),
+    linear-gradient(135deg,#0b3548 0%,#5d8d8b 45%,#cdd8c8 54%,#345b58 100%);
+  filter:blur(.2px);
+}
+.visual-modern:before{
+  background:
+    linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px),
+    radial-gradient(circle at 52% 48%,rgba(56,242,194,.30),transparent 22%),
+    linear-gradient(180deg,#090a0e 0%,#101010 100%);
+  background-size:32px 32px,32px 32px,auto,auto;
+}
+.visual-modern .visual-mark{
+  color:#42d493;
+  filter:drop-shadow(0 0 28px rgba(56,242,194,.45));
+}
+.visual-data:before{
+  background:
+    radial-gradient(circle at 72% 46%,rgba(143,107,255,.56),transparent 22%),
+    linear-gradient(135deg,#180f3d 0%,#100820 42%,#030511 100%);
+}
+.visual-data .visual-mark{
+  color:#a992ff;
+  transform:rotate(-8deg);
+  filter:drop-shadow(0 0 34px rgba(143,107,255,.45));
+}
+.visual-cx:before{
+  background:
+    radial-gradient(circle at 50% 22%,rgba(33,212,255,.52),transparent 18%),
+    linear-gradient(90deg,transparent 0 42%,rgba(255,255,255,.88) 43% 68%,transparent 69%),
+    linear-gradient(180deg,#5c6b42 0%,#d7e7d0 52%,#322620 100%);
+}
+.core-story-copy{
+  padding-top:18px;
+}
+.core-story-copy h3{
+  color:#f7fbff;
+  font-size:22px;
+  line-height:1.14;
+  margin-bottom:8px;
+}
+.core-story-copy p{
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.48;
+  max-width:95%;
+  min-height:72px;
+}
+.core-story-copy a{
+  display:inline-flex;
+  margin-top:14px;
+  color:#73dfff;
+  font-weight:850;
+  font-size:15px;
+  transition:.25s ease;
+}
+.core-story-copy a:hover{
+  color:#fff;
+  transform:translateX(4px);
+}
+@media(max-width:1040px){
+  #innovation.innovation-stories{padding:82px 0;}
+  .core-story-card{flex-basis:calc((100% - 22px)/2);}
+  .core-story-visual{height:340px;}
+}
+@media(max-width:680px){
+  #innovation.innovation-stories{padding:66px 0 76px;}
+  .innovation-head{grid-template-columns:1fr;}
+  .innovation-nav{justify-content:flex-start;}
+  .core-story-card{flex-basis:88%;}
+  .core-story-visual{height:300px;}
+  .core-story-copy p{min-height:auto;}
+}
+
+
+/* =========================
+   CAPABILITIES FEATURE LIST - MINIMAL EDITORIAL LAYOUT
+   Replaces the six-card grid with a hover-driven large preview.
+========================= */
+#capabilities.capability-stories{
+  width:var(--page);
+  margin:auto;
+  padding:92px 0 104px;
+  overflow:hidden;
+}
+.capability-stories-head{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:28px;
+  align-items:end;
+  margin-bottom:30px;
+}
+.capability-stories-head h2{
+  margin-bottom:0;
+  max-width:760px;
+  font-size:clamp(34px,4.4vw,58px);
+}
+.capability-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  width:max-content;
+  border-radius:999px;
+  padding:13px 18px;
+  color:#eaf9ff;
+  font-weight:850;
+  font-size:14px;
+  border:1px solid rgba(111,231,255,.24);
+  background:rgba(255,255,255,.045);
+  transition:.25s ease;
+}
+.capability-cta:hover{
+  transform:translateY(-2px);
+  border-color:rgba(33,212,255,.58);
+  background:rgba(33,212,255,.10);
+  box-shadow:0 0 28px rgba(33,212,255,.13);
+}
+.capability-showcase{
+  display:grid;
+  grid-template-columns:minmax(0,1.45fr) minmax(360px,.85fr);
+  gap:32px;
+  align-items:stretch;
+}
+.capability-feature-card{
+  min-height:560px;
+  border-radius:24px;
+  overflow:hidden;
+  position:relative;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(111,231,255,.14);
+  box-shadow:0 24px 76px rgba(0,0,0,.20);
+}
+.capability-feature-art{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  isolation:isolate;
+  transition:opacity .28s ease, transform .35s ease;
+}
+.capability-feature-art:before,
+.capability-feature-art:after,
+.capability-thumb:before,
+.capability-thumb:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+}
+.capability-feature-number{
+  font-size:clamp(88px,13vw,170px);
+  line-height:1;
+  font-weight:950;
+  color:rgba(255,255,255,.90);
+  letter-spacing:-.10em;
+  text-shadow:0 24px 62px rgba(0,0,0,.30);
+}
+.capability-feature-panel{
+  position:absolute;
+  left:28px;
+  bottom:28px;
+  width:min(620px,calc(100% - 56px));
+  padding:26px 28px;
+  border-radius:16px;
+  background:rgba(230,248,255,.78);
+  color:#061737;
+  backdrop-filter:blur(18px);
+  box-shadow:0 20px 70px rgba(0,0,0,.22);
+}
+.capability-feature-panel .capability-meta{
+  font-size:12px;
+  letter-spacing:.18em;
+  font-weight:900;
+  color:#0b4775;
+  margin-bottom:12px;
+}
+.capability-feature-panel h3{
+  font-size:clamp(28px,3vw,42px);
+  line-height:1.06;
+  color:#061737;
+  letter-spacing:-.045em;
+  max-width:560px;
+}
+.capability-feature-panel p{
+  color:#25425f;
+  font-size:16px;
+  line-height:1.55;
+  max-width:610px;
+  margin-top:14px;
+}
+.capability-feature-panel a{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:20px;
+  color:#1155ff;
+  font-weight:900;
+  font-size:15px;
+}
+.capability-list{
+  display:grid;
+  gap:18px;
+  align-content:space-between;
+}
+.capability-list-item{
+  display:grid;
+  grid-template-columns:184px minmax(0,1fr);
+  gap:22px;
+  align-items:center;
+  min-height:126px;
+  padding:0;
+  border-radius:22px;
+  cursor:pointer;
+  outline:none;
+  transition:transform .25s ease, opacity .25s ease;
+}
+.capability-list-item:hover,
+.capability-list-item:focus-visible{
+  transform:translateX(6px);
+}
+.capability-list-item.active .capability-thumb{
+  border-color:rgba(33,212,255,.55);
+  box-shadow:0 0 0 1px rgba(33,212,255,.24),0 20px 54px rgba(33,212,255,.11);
+}
+.capability-thumb{
+  position:relative;
+  height:118px;
+  border-radius:18px;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(111,231,255,.14);
+  background:#08204c;
+  isolation:isolate;
+  transition:.25s ease;
+}
+.capability-thumb span{
+  color:#fff;
+  font-size:34px;
+  line-height:1;
+  font-weight:950;
+  letter-spacing:-.06em;
+  text-shadow:0 12px 30px rgba(0,0,0,.28);
+}
+.capability-list-item h3{
+  font-size:22px;
+  line-height:1.15;
+  color:#f8fbff;
+  margin-bottom:8px;
+}
+.capability-list-item p{
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.42;
+}
+.cap-art-assessment:before{
+  background:
+    radial-gradient(circle at 58% 42%,rgba(255,255,255,.74),transparent 10%),
+    radial-gradient(ellipse at 48% 52%,rgba(33,212,255,.38),transparent 34%),
+    conic-gradient(from 35deg at 50% 50%,#0c6e9d,#b5f2f6,#1266a4,#f3a1c2,#0c6e9d);
+  filter:saturate(1.06);
+}
+.cap-art-assessment:after{
+  background:linear-gradient(135deg,rgba(0,20,60,.10),rgba(255,255,255,.08));
+}
+.cap-art-engineering:before{
+  background:
+    radial-gradient(circle at 62% 28%,rgba(255,133,95,.82),transparent 20%),
+    radial-gradient(circle at 34% 58%,rgba(33,212,255,.62),transparent 22%),
+    linear-gradient(135deg,#08204c 0%,#00a8c8 52%,#ffe0bd 100%);
+}
+.cap-art-cloud:before{
+  background:
+    linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px),
+    radial-gradient(circle at 50% 45%,rgba(56,242,194,.55),transparent 20%),
+    linear-gradient(180deg,#06070b,#101820);
+  background-size:34px 34px,34px 34px,auto,auto;
+}
+.cap-art-ai:before{
+  background:
+    radial-gradient(circle at 48% 48%,rgba(143,107,255,.86),transparent 17%),
+    radial-gradient(circle at 70% 34%,rgba(33,212,255,.52),transparent 20%),
+    linear-gradient(135deg,#160d3d 0%,#090414 62%,#03040d 100%);
+}
+.cap-art-experience:before{
+  background:
+    radial-gradient(ellipse at 52% 30%,rgba(255,255,255,.92),transparent 17%),
+    linear-gradient(90deg,transparent 0 40%,rgba(255,255,255,.78) 42% 64%,transparent 67%),
+    linear-gradient(180deg,#4a623e,#cce5d7 48%,#4d3426 100%);
+}
+.cap-art-managed:before{
+  background:
+    repeating-linear-gradient(112deg,rgba(255,255,255,.15) 0 4px,transparent 5px 22px),
+    radial-gradient(circle at 70% 24%,rgba(33,212,255,.48),transparent 18%),
+    linear-gradient(135deg,#06273f 0%,#0d6b7a 52%,#d2f3ff 100%);
+}
+@media(max-width:1040px){
+  #capabilities.capability-stories{padding:82px 0;}
+  .capability-showcase{grid-template-columns:1fr;}
+  .capability-feature-card{min-height:470px;}
+  .capability-list{grid-template-columns:repeat(2,minmax(0,1fr));align-content:start;}
+  .capability-list-item{grid-template-columns:112px minmax(0,1fr);gap:16px;min-height:112px;}
+  .capability-thumb{height:96px;}
+  .capability-list-item h3{font-size:19px;}
+}
+@media(max-width:680px){
+  #capabilities.capability-stories{padding:66px 0 76px;}
+  .capability-stories-head{grid-template-columns:1fr;align-items:start;}
+  .capability-cta{width:100%;justify-content:center;}
+  .capability-feature-card{min-height:440px;border-radius:20px;}
+  .capability-feature-panel{left:16px;right:16px;bottom:16px;width:auto;padding:20px;border-radius:14px;}
+  .capability-feature-panel h3{font-size:28px;}
+  .capability-list{grid-template-columns:1fr;gap:14px;}
+  .capability-list-item{grid-template-columns:92px minmax(0,1fr);}
+  .capability-thumb{height:82px;border-radius:15px;}
+}
+
+
+
+/* =========================
+   USER ENGAGEMENT FEATURED VIDEO CARDS
+   Minimal two-card layout inspired by editorial video modules.
+========================= */
+#engagement.user-engagement-stories{
+  width:100%;
+  max-width:none;
+  padding:92px 0 104px;
+  background:linear-gradient(180deg,rgba(239,247,251,.98),rgba(247,251,255,.96));
+  color:#111827;
+  border-top:1px solid rgba(210,225,236,.75);
+  border-bottom:1px solid rgba(210,225,236,.65);
+}
+#engagement.user-engagement-stories .engagement-wrap{
+  width:var(--page);
+  margin:0 auto;
+}
+#engagement.user-engagement-stories .eyebrow{
+  color:#1265d8;
+  text-shadow:none;
+}
+#engagement.user-engagement-stories h2{
+  max-width:780px;
+  margin-bottom:14px;
+  background:linear-gradient(90deg,#101828,#25466f 52%,#1265d8);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:none;
+  filter:none;
+}
+.engagement-intro{
+  color:#5f6f82;
+  font-size:17px;
+  line-height:1.65;
+  max-width:760px;
+  margin-bottom:30px;
+}
+.engagement-video-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:32px;
+}
+.engagement-video-card{
+  min-height:610px;
+  border-radius:16px;
+  background:#fff;
+  padding:16px 16px 30px;
+  box-shadow:0 18px 46px rgba(23,54,92,.08);
+  border:1px solid rgba(214,226,236,.78);
+  transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+.engagement-video-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 28px 70px rgba(23,54,92,.14);
+  border-color:rgba(33,111,214,.20);
+}
+.engagement-video-art{
+  height:320px;
+  border-radius:10px;
+  overflow:hidden;
+  position:relative;
+  isolation:isolate;
+  display:flex;
+  align-items:center;
+  padding:34px;
+  background:#071638;
+}
+.engagement-video-art:before,
+.engagement-video-art:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+}
+.engagement-video-art:after{
+  background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.22));
+}
+.engagement-video-art.art-agent:before{
+  background:
+    linear-gradient(rgba(255,255,255,.10) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px),
+    radial-gradient(circle at 75% 12%,rgba(160,255,86,.90),transparent 12%),
+    radial-gradient(circle at 88% 8%,rgba(93,255,69,.68),transparent 16%),
+    linear-gradient(135deg,#00160d 0%,#06150f 48%,#0a2916 100%);
+  background-size:100% 68px,68px 100%,auto,auto,auto;
+}
+.engagement-video-art.art-action:before{
+  background:
+    radial-gradient(circle at 27% 22%,rgba(255,255,255,.96),transparent 14%),
+    radial-gradient(circle at 75% 28%,rgba(255,255,255,.96),transparent 14%),
+    linear-gradient(135deg,rgba(255,255,255,.62),transparent 38%),
+    radial-gradient(circle at 50% 62%,rgba(37,120,255,.26),transparent 30%),
+    linear-gradient(135deg,#bdeeff 0%,#eff9ff 52%,#82c6ff 100%);
+}
+.featured-pill{
+  position:absolute;
+  left:22px;
+  top:20px;
+  z-index:3;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:104px;
+  height:38px;
+  padding:0 18px;
+  border-radius:999px;
+  color:#20242a;
+  background:rgba(255,255,255,.88);
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  box-shadow:0 10px 26px rgba(0,0,0,.08);
+}
+.agent-title-art{
+  color:#fff;
+  width:100%;
+  margin-top:26px;
+  padding:34px 0;
+  border-top:1px solid rgba(255,255,255,.16);
+  border-bottom:1px solid rgba(255,255,255,.16);
+}
+.agent-title-art span{
+  display:block;
+  font-size:clamp(34px,4vw,48px);
+  line-height:1.04;
+  font-style:italic;
+  font-weight:300;
+}
+.agent-title-art strong{
+  display:block;
+  margin-top:10px;
+  font-size:clamp(38px,4.8vw,56px);
+  line-height:1;
+  font-weight:950;
+  font-style:italic;
+  letter-spacing:-.04em;
+}
+.speaker-panel{
+  position:absolute;
+  inset:54px 88px 36px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  padding:14px;
+  border-radius:12px;
+  background:rgba(255,255,255,.72);
+  box-shadow:0 20px 44px rgba(20,75,130,.10);
+}
+.speaker{
+  position:relative;
+  border-radius:8px;
+  background:linear-gradient(180deg,#f7fbff,#e9f2f9);
+  overflow:hidden;
+}
+.speaker:before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:24%;
+  width:86px;
+  height:86px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:linear-gradient(145deg,#cfd9e0,#8e9ca8);
+}
+.speaker:after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:36px;
+  width:145px;
+  height:118px;
+  transform:translateX(-50%);
+  border-radius:60px 60px 8px 8px;
+  background:linear-gradient(145deg,#4b5563,#111827);
+}
+.speaker-label{
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:10px;
+  z-index:3;
+  padding:9px 10px;
+  border-radius:7px;
+  background:rgba(17,24,39,.96);
+  color:#fff;
+  text-align:center;
+  font-size:11px;
+  line-height:1.25;
+}
+.speaker-label b{display:block;font-size:12px;margin-bottom:3px;}
+.engagement-video-copy{
+  padding:30px 20px 0;
+}
+.engagement-video-copy h3{
+  color:#171717;
+  font-size:clamp(26px,2.7vw,34px);
+  line-height:1.18;
+  letter-spacing:-.035em;
+  margin-bottom:22px;
+}
+.engagement-video-copy p{
+  color:#667386;
+  font-size:18px;
+  line-height:1.5;
+  max-width:680px;
+}
+.watch-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  margin-top:34px;
+  padding:15px 22px;
+  border-radius:4px;
+  background:#171717;
+  color:#fff;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  transition:.25s ease;
+}
+.watch-cta:hover{
+  transform:translateY(-2px);
+  background:#1155ff;
+  color:#fff;
+}
+@media(max-width:1040px){
+  #engagement.user-engagement-stories{padding:82px 0;}
+  .engagement-video-grid{grid-template-columns:1fr;}
+  .engagement-video-card{min-height:auto;}
+}
+@media(max-width:680px){
+  #engagement.user-engagement-stories{padding:66px 0 76px;}
+  .engagement-video-card{padding:12px 12px 24px;}
+  .engagement-video-art{height:260px;padding:24px;}
+  .speaker-panel{inset:54px 22px 28px;}
+  .engagement-video-copy{padding:24px 8px 0;}
+  .engagement-video-copy h3{font-size:26px;}
+  .engagement-video-copy p{font-size:16px;}
+  .watch-cta{width:100%;justify-content:center;}
+}
+
+
+/* =========================
+   TRUSTED LEADERS PARTNER ORBIT
+   Minimal Stripe-inspired light section with animated logo bubbles.
+========================= */
+#leaders.partner-orbit-section{
+  width:100%;
+  max-width:none;
+  padding:104px 0 116px;
+  background:linear-gradient(180deg,#f6fbff 0%,#eef6fb 100%);
+  color:#0b2038;
+  border-top:1px solid rgba(203,219,232,.72);
+  border-bottom:1px solid rgba(203,219,232,.72);
+  overflow:hidden;
+  position:relative;
+}
+#leaders.partner-orbit-section:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  
+  background-size:310px 100%,100% 120px;
+  pointer-events:none;
+}
+.partner-wrap{
+  width:var(--page);
+  margin:0 auto;
+  min-height:560px;
+  display:grid;
+  grid-template-columns:minmax(0,.82fr) minmax(520px,1.05fr);
+  gap:54px;
+  align-items:center;
+  position:relative;
+  z-index:1;
+}
+.partner-copy .eyebrow{
+  color:#1d65d8;
+  text-shadow:none;
+}
+.partner-copy h2{
+  max-width:620px;
+  margin-bottom:24px;
+  color:#0b2038;
+  background:none;
+  -webkit-text-fill-color:initial;
+  animation:none;
+  font-size:clamp(46px,6.2vw,86px);
+  line-height:1.02;
+  letter-spacing:-.06em;
+}
+.partner-copy p{
+  color:#45586d;
+  font-size:20px;
+  line-height:1.65;
+  max-width:650px;
+  margin-bottom:30px;
+}
+.partner-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  align-items:center;
+}
+.partner-primary,
+.partner-secondary{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  font-weight:850;
+  transition:.25s ease;
+}
+.partner-primary{
+  padding:15px 22px;
+  border-radius:999px;
+  color:#fff;
+  background:linear-gradient(135deg,#5a52ff,#7a58ff);
+  box-shadow:0 18px 44px rgba(92,82,255,.18);
+}
+.partner-secondary{
+  color:#5b54ff;
+  padding:13px 6px;
+}
+.partner-primary:hover,
+.partner-secondary:hover{
+  transform:translateY(-2px) translateX(2px);
+}
+.partner-orbit{
+  position:relative;
+  height:570px;
+  overflow:hidden;
+}
+.partner-wave{
+  position:absolute;
+  right:-120px;
+  bottom:-52px;
+  width:760px;
+  height:210px;
+  transform:rotate(-8deg);
+  border-radius:58% 42% 0 0;
+  background:
+    radial-gradient(circle at 20% 80%,rgba(33,212,255,.52),transparent 30%),
+    linear-gradient(135deg,#8756ff 0%,#bb6be2 46%,#75d7ff 100%);
+  filter:blur(.2px);
+  opacity:.86;
+}
+.partner-wave:before{
+  content:"";
+  position:absolute;
+  inset:-36px -20px 82px 30px;
+  border-radius:55% 45% 0 0;
+  background:linear-gradient(135deg,rgba(122,88,255,.55),rgba(33,212,255,.36));
+  filter:blur(22px);
+}
+.logo-bubble{
+  position:absolute;
+  width:112px;
+  height:112px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  color:#111827;
+  box-shadow:0 18px 36px rgba(23,54,92,.16);
+  border:1px solid rgba(214,226,236,.85);
+  font-weight:950;
+  font-size:23px;
+  letter-spacing:-.04em;
+  will-change:transform;
+  text-decoration:none;
+}
+.logo-bubble img{
+  max-width:100%;
+  max-height:100%;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  display:block;
+}
+.logo-bubble small{
+  display:block;
+  font-size:11px;
+  letter-spacing:-.02em;
+  line-height:1;
+  opacity:.86;
+}
+.logo-bubble.pink{background:#ffa8c2;font-size:52px;}
+.logo-bubble.blue{background:#0aa6df;color:#fff;}
+.logo-bubble.black{background:#0d0d13;color:#fff;}
+.logo-bubble.purple{background:#7f3cff;color:#fff;font-size:36px;}
+.logo-bubble.white2{background:#fff;color:#111827;}
+.logo-bubble.insight{width:106px;height:106px;}
+.logo-bubble.insight span:before{
+  content:"✣";
+  color:#e1007a;
+  margin-right:5px;
+}
+.logo-bubble.b1{left:34%;top:12%;animation:floatClock 9s ease-in-out infinite;}
+.logo-bubble.b2{left:66%;top:4%;animation:floatCounter 10s ease-in-out infinite;}
+.logo-bubble.b3{right:-2%;top:22%;animation:floatClock 11s ease-in-out infinite;}
+.logo-bubble.b4{left:18%;top:38%;animation:floatCounter 9.5s ease-in-out infinite;}
+.logo-bubble.b5{left:50%;top:34%;animation:floatClock 12s ease-in-out infinite;}
+.logo-bubble.b6{right:13%;top:45%;animation:floatCounter 9s ease-in-out infinite;}
+.logo-bubble.b7{left:5%;bottom:15%;animation:floatClock 10.5s ease-in-out infinite;}
+.logo-bubble.b8{left:38%;bottom:13%;animation:floatCounter 11s ease-in-out infinite;}
+.logo-bubble.b9{right:28%;bottom:20%;animation:floatClock 10s ease-in-out infinite;}
+.logo-bubble.b10{right:-5%;bottom:27%;animation:floatCounter 12s ease-in-out infinite;}
+.logo-bubble.b11{left:24%;bottom:2%;animation:floatClock 13s ease-in-out infinite;}
+@keyframes floatClock{
+  0%,100%{transform:translate3d(0,0,0) rotate(0deg);}
+  33%{transform:translate3d(16px,-18px,0) rotate(4deg);}
+  66%{transform:translate3d(-10px,16px,0) rotate(-3deg);}
+}
+@keyframes floatCounter{
+  0%,100%{transform:translate3d(0,0,0) rotate(0deg);}
+  33%{transform:translate3d(-18px,14px,0) rotate(-4deg);}
+  66%{transform:translate3d(12px,-16px,0) rotate(3deg);}
+}
+.partner-orbit:hover .logo-bubble{
+  animation-play-state:paused;
+}
+@media(max-width:1040px){
+  #leaders.partner-orbit-section{padding:82px 0;}
+  .partner-wrap{grid-template-columns:1fr;min-height:auto;}
+  .partner-orbit{height:470px;}
+  .logo-bubble{width:96px;height:96px;font-size:19px;}
+  .logo-bubble.pink{font-size:44px;}
+}
+@media(max-width:680px){
+  #leaders.partner-orbit-section{padding:66px 0 76px;}
+  .partner-copy h2{font-size:44px;}
+  .partner-copy p{font-size:17px;}
+  .partner-actions{align-items:stretch;}
+  .partner-primary,.partner-secondary{width:100%;justify-content:center;}
+  .partner-orbit{height:420px;margin-inline:-14px;}
+  .partner-wave{width:520px;height:160px;right:-130px;}
+  .logo-bubble{width:78px;height:78px;font-size:15px;}
+  .logo-bubble.pink{font-size:34px;}
+  .logo-bubble.purple{font-size:25px;}
+}
+
+
+/* =========================
+   GLOBAL BACKGROUND RHYTHM FIX
+   Keeps every section in the same dark Infinite blue-gradient rhythm.
+========================= */
+main > section,
+#spotlight.spotlight-section,
+#innovation.innovation-stories,
+#capabilities.capability-stories,
+#engagement.user-engagement-stories,
+#leaders.partner-orbit-section{
+  background:transparent !important;
+  color:var(--ink) !important;
+  border-top:0 !important;
+  border-bottom:0 !important;
+}
+
+main > section{
+  position:relative;
+}
+
+main > section:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  
+}
+
+main > section:nth-of-type(even):before{
+  /* background:
+    radial-gradient(circle at 78% 16%,rgba(33,212,255,.08),transparent 25%),
+    radial-gradient(circle at 18% 72%,rgba(143,107,255,.055),transparent 24%),
+    linear-gradient(180deg,rgba(255,255,255,.018),rgba(255,255,255,0)); */
+}
+
+#engagement.user-engagement-stories .engagement-wrap,
+.partner-wrap{
+  position:relative;
+  z-index:1;
+}
+
+#engagement.user-engagement-stories .eyebrow,
+.partner-copy .eyebrow{
+  color:var(--cyan) !important;
+}
+
+#engagement.user-engagement-stories h2,
+.partner-copy h2{
+  background:linear-gradient(90deg,#fff,#c8f3ff 36%,#38cfff 66%,#fff) !important;
+  background-size:220% auto !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+  color:transparent !important;
+  animation:flow 10s ease infinite !important;
+}
+
+#engagement.user-engagement-stories .engagement-intro,
+.partner-copy p{
+  color:var(--muted) !important;
+}
+
+#engagement.user-engagement-stories{
+  padding:92px 0 104px !important;
+}
+
+.engagement-video-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025)) !important;
+  border:1px solid rgba(118,218,255,.18) !important;
+  box-shadow:0 26px 80px rgba(0,0,0,.28) !important;
+  backdrop-filter:blur(20px);
+}
+
+.engagement-video-card:hover{
+  border-color:rgba(33,212,255,.42) !important;
+  box-shadow:0 30px 86px rgba(0,0,0,.36),0 0 34px rgba(33,212,255,.10) !important;
+}
+
+.engagement-video-copy h3{
+  color:#f7fbff !important;
+}
+
+.engagement-video-copy p{
+  color:var(--muted) !important;
+}
+
+.watch-cta{
+  background:linear-gradient(135deg,var(--cyan),var(--blue)) !important;
+  color:#061737 !important;
+  border-radius:999px !important;
+  box-shadow:0 16px 42px rgba(33,212,255,.18);
+}
+
+.watch-cta:hover{
+  background:linear-gradient(135deg,#fff,var(--cyan)) !important;
+  color:#061737 !important;
+}
+
+#leaders.partner-orbit-section:before{
+  /* background-image removed */
+  background-size:78px 78px !important;
+  opacity:.28;
+  mask-image:radial-gradient(circle at 58% 42%,black,transparent 76%);
+}
+
+.partner-primary{
+  background:linear-gradient(135deg,var(--cyan),var(--blue)) !important;
+  color:#061737 !important;
+  box-shadow:0 18px 46px rgba(33,212,255,.20) !important;
+}
+
+.partner-secondary{
+  color:#8eeeff !important;
+}
+
+.logo-bubble{
+  background:rgba(255,255,255,.92) !important;
+  border:1px solid rgba(118,218,255,.24) !important;
+  box-shadow:0 18px 42px rgba(0,0,0,.28),0 0 24px rgba(33,212,255,.08) !important;
+}
+
+.logo-bubble.pink{background:#ffa8c2 !important;color:#111827 !important;}
+.logo-bubble.blue{background:#0aa6df !important;color:#fff !important;}
+.logo-bubble.black{background:#0d0d13 !important;color:#fff !important;}
+.logo-bubble.purple{background:#7f3cff !important;color:#fff !important;}
+.logo-bubble.white2{background:#fff !important;color:#111827 !important;}
+
+.partner-wave{
+  opacity:.52 !important;
+  mix-blend-mode:screen;
+}
+
+.news-card,
+.career-card,
+.impact-card,
+.leader,
+.biz-card,
+.cap-card,
+.engage-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(20px);
+}
+
+@media(max-width:680px){
+  #engagement.user-engagement-stories,
+  #leaders.partner-orbit-section{
+    padding:66px 0 76px !important;
+  }
+}
+
+
+
+/* =========================================================
+   POLISH PASS 2026 - premium spacing, depth, motion and UX
+   ========================================================= */
+:root{
+  --page:min(1280px,calc(100% - 72px));
+  --soft-shadow:0 18px 50px rgba(0,0,0,.22),0 0 0 1px rgba(118,218,255,.07);
+  --glow:0 0 46px rgba(33,212,255,.20);
+}
+body{font-feature-settings:"ss01" on,"kern" on;text-rendering:optimizeLegibility;}
+body:before{background:
+  radial-gradient(circle at 13% 8%,rgba(33,212,255,.30),transparent 27%),
+  radial-gradient(circle at 88% 10%,rgba(49,120,255,.26),transparent 25%),
+  radial-gradient(circle at 50% 105%,rgba(56,242,194,.16),transparent 32%),
+  linear-gradient(135deg,#05112d 0%,#071a43 44%,#0b245c 100%) !important;}
+body:after{opacity:.22;background-size:72px 72px;}
+header{box-shadow:0 18px 60px rgba(0,0,0,.16)}
+.nav{height:76px}.logo span:last-child{letter-spacing:-.02em}.mark{position:relative;overflow:hidden}.mark:after{content:"";position:absolute;inset:-40%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.75),transparent);transform:translateX(-120%) rotate(12deg);animation:logoSweep 5.5s ease-in-out infinite}@keyframes logoSweep{35%,100%{transform:translateX(120%) rotate(12deg)}}
+nav a{position:relative;padding:8px 0;transition:.25s ease}nav a:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--blue));transform:scaleX(0);transform-origin:left;transition:.25s ease}nav a:hover,nav a.active{color:#fff}nav a:hover:after,nav a.active:after{transform:scaleX(1)}
+.hero{min-height:calc(100svh - 76px);position:relative}.hero:before{content:"";position:absolute;left:-5%;top:12%;width:360px;height:360px;border-radius:999px;background:radial-gradient(circle,rgba(33,212,255,.16),transparent 68%);filter:blur(10px);z-index:-1}.hero h1{max-width:930px;text-wrap:balance}.hero p{text-wrap:pretty}.actions .btn{box-shadow:0 12px 34px rgba(0,0,0,.14)}.btn.primary{background:linear-gradient(135deg,#26ddff 0%,#38f2c2 52%,#8eeeff 100%);}
+.orbital{border-radius:46px;box-shadow:0 30px 100px rgba(0,0,0,.30),inset 0 0 0 1px rgba(255,255,255,.06)}.orbital .node{backdrop-filter:blur(18px)}.orbital:after{animation:pulseCore 4.8s ease-in-out infinite}@keyframes pulseCore{50%{transform:scale(1.035);box-shadow:0 0 100px rgba(33,212,255,.34)}}
+.glass,.news-card,.career-card,.impact-card,.leader,.biz-card,.cap-card,.engage-card,.industry-card,.spot-card,.core-story-visual,.capability-feature-card,.engagement-video-card{box-shadow:var(--soft-shadow);}
+.section{padding:112px 0}.eyebrow{display:inline-flex;align-items:center;gap:10px}.eyebrow:before{content:"";width:28px;height:1px;background:linear-gradient(90deg,var(--cyan),transparent)}
+.focus-head,.innovation-head,.capability-stories-head,#spotlight .spotlight-top{padding-bottom:8px;border-bottom:1px solid rgba(118,218,255,.10)}
+.industry-shell{border-radius:26px!important;border:1px solid rgba(111,231,255,.20)!important;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.012))!important;padding:22px 0!important}.industry-card{min-height:136px}.industry-card h3,.news-card h3,.core-story-copy h3,.capability-list-item h3{text-wrap:balance}.industry-icon{box-shadow:inset 0 0 24px rgba(33,212,255,.08)}
+#spotlight .spot-card{border-radius:22px!important}.spot-content h3{font-size:18px!important}.spot-arrow,.industry-btn,.innovation-btn,#spotlight .spot-btn{backdrop-filter:blur(14px)}
+.core-story-visual{border-radius:22px}.core-story-copy p{min-height:88px}.visual-mark{letter-spacing:-.09em}
+.capability-feature-card{border-radius:30px}.capability-feature-panel{background:rgba(235,249,255,.86);border:1px solid rgba(255,255,255,.52)}.capability-list-item{padding:8px;border:1px solid transparent}.capability-list-item.active{background:rgba(33,212,255,.045);border-color:rgba(33,212,255,.16)}
+.engagement-video-card{border-radius:28px!important}.engagement-video-art{border-radius:20px}.watch-cta{letter-spacing:.04em}.speaker-panel{backdrop-filter:blur(12px)}
+.partner-orbit{filter:drop-shadow(0 24px 60px rgba(0,0,0,.16))}.logo-bubble{transition:transform .25s ease,box-shadow .25s ease}.logo-bubble:hover{transform:translateY(-8px) scale(1.04)!important;box-shadow:0 28px 60px rgba(0,0,0,.30),0 0 34px rgba(33,212,255,.18)!important}
+.news-card,.impact-card,.career-card{position:relative;overflow:hidden}.news-card:before,.impact-card:before,.career-card:before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.55}.news-card .btn{width:max-content}.job{transition:.25s ease}.job:hover{transform:translateX(6px);border-color:rgba(33,212,255,.38);background:rgba(33,212,255,.07)}
+.footer{padding-top:80px}.footer .logo{width:max-content}.foot-grid a{transition:.22s ease}.foot-grid a:hover{color:#fff;transform:translateX(3px)}
+.back-to-top{position:fixed;right:22px;bottom:22px;z-index:30;width:46px;height:46px;border-radius:999px;border:1px solid rgba(118,218,255,.32);background:rgba(7,22,56,.72);color:#eaf9ff;display:grid;place-items:center;box-shadow:0 16px 44px rgba(0,0,0,.25);backdrop-filter:blur(14px);opacity:0;pointer-events:none;transform:translateY(10px);transition:.25s ease}.back-to-top.show{opacity:1;pointer-events:auto;transform:translateY(0)}.back-to-top:hover{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#061737;transform:translateY(-3px)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.in{opacity:1;transform:none}
+@media(max-width:1040px){:root{--page:min(100% - 44px,920px)}.nav{height:70px}.section{padding:86px 0}.hero{min-height:auto;padding:72px 0}.orbital{height:390px}.capability-feature-card{min-height:520px}.partner-wrap{gap:34px}}
+@media(max-width:680px){:root{--page:min(100% - 28px,640px)}.hero{padding:56px 0 38px}.hero h1{font-size:clamp(42px,14vw,58px);letter-spacing:-.06em}.hero p{font-size:17px}.actions .btn{width:100%;text-align:center;justify-content:center}.section{padding:68px 0}.focus-head,.innovation-head,.capability-stories-head,#spotlight .spotlight-top{border-bottom:0}.industry-shell{border-radius:20px!important}.news-card,.career-card,.impact-card{border-radius:22px}.back-to-top{right:14px;bottom:14px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+
+/* =========================
+   MINIMAL HEADER THEME TOGGLE
+   Integrated light / dark mode
+========================= */
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-shrink:0;
+}
+.theme-toggle{
+  width:64px;
+  height:36px;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  border-radius:999px;
+}
+.toggle-track{
+  width:60px;
+  height:32px;
+  border-radius:999px;
+  position:relative;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(118,218,255,.22);
+  backdrop-filter:blur(14px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.14);
+  transition:background .35s ease,border-color .35s ease,box-shadow .35s ease;
+}
+.toggle-thumb{
+  position:absolute;
+  top:3px;
+  left:3px;
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,var(--cyan),var(--blue));
+  box-shadow:0 6px 18px rgba(33,212,255,.34);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),background .35s ease,box-shadow .35s ease;
+}
+.theme-toggle svg{
+  width:13px;
+  height:13px;
+  stroke:#fff;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.moon-icon{display:none;}
+.theme-toggle:focus-visible{
+  outline:2px solid var(--cyan);
+  outline-offset:4px;
+}
+body,
+header,
+.glass,
+.news-card,
+.biz-card,
+.cap-card,
+.career-card,
+.impact-card,
+.engage-card,
+.leader,
+.btn,
+.cta,
+.industry-card,
+.theme-toggle *{
+  transition:background .35s ease,color .35s ease,border-color .35s ease,box-shadow .35s ease,transform .35s ease;
+}
+
+/* Light mode palette */
+body.light-mode{
+  --bg:#f7fbff;
+  --bg2:#edf5ff;
+  --ink:#071b3a;
+  --muted:#53677f;
+  --line:rgba(14,45,84,.12);
+  --panel:rgba(255,255,255,.78);
+  --panel2:rgba(255,255,255,.66);
+  --shadow:0 22px 64px rgba(26,62,105,.12);
+  color:var(--ink);
+  background:var(--bg);
+}
+body.light-mode:before{
+  background:
+    radial-gradient(circle at 14% 10%,rgba(33,212,255,.16),transparent 30%),
+    radial-gradient(circle at 86% 8%,rgba(49,120,255,.13),transparent 26%),
+    radial-gradient(circle at 50% 100%,rgba(56,242,194,.10),transparent 32%),
+    linear-gradient(135deg,#ffffff 0%,#f6faff 48%,#edf5ff 100%) !important;
+}
+body.light-mode:after{
+  opacity:.34;
+  background-image:
+    linear-gradient(rgba(49,120,255,.075) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(49,120,255,.075) 1px,transparent 1px);
+}
+body.light-mode header{
+  background:rgba(255,255,255,.78);
+  border-bottom-color:rgba(14,45,84,.10);
+  box-shadow:0 16px 46px rgba(26,62,105,.08);
+}
+body.light-mode nav{color:#4b6078;}
+body.light-mode nav a:hover,
+body.light-mode nav a.active{color:#0b5ee8;}
+body.light-mode .logo{color:#071b3a;}
+body.light-mode .grad,
+body.light-mode #engagement.user-engagement-stories h2,
+body.light-mode .partner-copy h2{
+  background:linear-gradient(90deg,#061737,#135acb 45%,#18a9d8 72%,#061737) !important;
+  background-size:220% auto !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  -webkit-text-fill-color:transparent !important;
+}
+body.light-mode .copy,
+body.light-mode .hero p,
+body.light-mode .kicker,
+body.light-mode .industry-card p,
+body.light-mode .biz-card p,
+body.light-mode .cap-card p,
+body.light-mode .engage-card p,
+body.light-mode .news-card p,
+body.light-mode .career-card p,
+body.light-mode .impact-card p,
+body.light-mode .core-story-copy p,
+body.light-mode .capability-list-item p,
+body.light-mode .engagement-video-copy p,
+body.light-mode .partner-copy p,
+body.light-mode .foot-grid a,
+body.light-mode .foot-grid p{
+  color:#45586d !important;
+}
+body.light-mode .glass,
+body.light-mode .news-card,
+body.light-mode .biz-card,
+body.light-mode .cap-card,
+body.light-mode .career-card,
+body.light-mode .impact-card,
+body.light-mode .engage-card,
+body.light-mode .leader,
+body.light-mode .industry-card,
+body.light-mode .engagement-video-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.88),rgba(255,255,255,.58)) !important;
+  border-color:rgba(14,45,84,.10) !important;
+  box-shadow:0 18px 54px rgba(26,62,105,.10) !important;
+  backdrop-filter:blur(18px);
+}
+body.light-mode .cta,
+body.light-mode .btn{
+  color:#071b3a;
+  background:rgba(255,255,255,.68);
+  border-color:rgba(14,45,84,.12);
+}
+body.light-mode .btn.primary,
+body.light-mode .watch-cta,
+body.light-mode .partner-primary{
+  color:#061737 !important;
+  background:linear-gradient(135deg,var(--cyan),var(--blue)) !important;
+}
+body.light-mode .node{
+  color:#071b3a;
+  background:rgba(255,255,255,.76);
+  border-color:rgba(14,45,84,.12);
+}
+body.light-mode .job{
+  color:#071b3a !important;
+  background:rgba(255,255,255,.6) !important;
+  border-color:rgba(14,45,84,.12) !important;
+}
+body.light-mode .tag{
+  color:#1d65d8 !important;
+  background:rgba(29,101,216,.08) !important;
+  border-color:rgba(29,101,216,.22) !important;
+}
+body.light-mode .impact-card b{
+  color:#1d65d8 !important;
+}
+body.light-mode .industry-shell:before{
+  background:linear-gradient(90deg,#f7fbff 0%,rgba(247,251,255,.78) 38%,transparent) !important;
+}
+body.light-mode .industry-shell:after{
+  background:linear-gradient(270deg,#f7fbff 0%,rgba(247,251,255,.78) 38%,transparent) !important;
+}
+body.light-mode .core-story-copy h3,
+body.light-mode .capability-list-item h3,
+body.light-mode .engagement-video-copy h3,
+body.light-mode .news-card h3,
+body.light-mode .career-card h3{
+  color:#071b3a !important;
+}
+body.light-mode .capability-feature-panel{
+  background:rgba(255,255,255,.84);
+  color:#071b3a;
+}
+body.light-mode .footer{
+  border-top-color:rgba(14,45,84,.12);
+}
+body.light-mode .copyright{
+  color:#6a7c91;
+  border-top-color:rgba(14,45,84,.10);
+}
+body.light-mode .toggle-track{
+  background:rgba(7,27,58,.07);
+  border-color:rgba(14,45,84,.14);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.65),0 10px 28px rgba(26,62,105,.08);
+}
+body.light-mode .toggle-thumb{
+  transform:translateX(28px);
+  background:linear-gradient(135deg,#1d4ed8,#38bdf8);
+  box-shadow:0 6px 18px rgba(29,78,216,.20);
+}
+body.light-mode .sun-icon{display:none;}
+body.light-mode .moon-icon{display:block;}
+@media(max-width:680px){
+  .header-actions{gap:10px;}
+  .theme-toggle{width:58px;height:34px;}
+  .toggle-track{width:54px;height:30px;}
+  .toggle-thumb{width:22px;height:22px;}
+  body.light-mode .toggle-thumb{transform:translateX(24px);}
+}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="logo" href="index.html"><span class="mark"></span><span>Infinite</span></a>
+    <nav>
+      <div class="nav-dropdown">
+        <a href="index.html">Industries</a>
+        <div class="dropdown-menu">
+          <a href="healthcare1.html">Healthcare</a>
+          <a href="index.html">Banking & Financial Services</a>
+          <a href="index.html">Insurance</a>
+          <a href="telecom1.html">Telecom</a>
+          <a href="index.html">Life Sciences</a>
+          <a href="index.html">High Technology</a>
+          <a href="index.html">Media & Entertainment</a>
+          <a href="index.html">Government</a>
+          <a href="index.html">Manufacturing</a>
+          <a href="index.html">Utilities</a>
+        </div>
+      </div>
+      <a href="index.html">Services</a>
+      <a href="index.html">Solutions</a>
+      <a href="index.html">About Us</a>
+      <a href="index.html">Careers</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" title="Toggle light / dark mode">
+        <span class="toggle-track" aria-hidden="true">
+          <span class="toggle-thumb">
+            <svg class="sun-icon" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2V5M12 19V22M22 12H19M5 12H2M19.07 4.93L16.95 7.05M7.05 16.95L4.93 19.07M19.07 19.07L16.95 16.95M7.05 7.05L4.93 4.93"></path>
+            </svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" fill="none">
+              <path d="M20.5 14.5A8.5 8.5 0 1111 3a6.5 6.5 0 009.5 11.5z"></path>
+            </svg>
+          </span>
+        </span>
+      </button>
+      <a class="cta" href="#footer">Contact us</a>
+    </div>
+  </div>
+</header>
+<main>
+  <section class="hero" id="hero">
+    <div>
+      <div class="eyebrow">PIONEERING AI FOR INDUSTRY</div>
+      <h1 class="grad">Transform What Matters Next.</h1>
+      <p>Empowering enterprises with AI-driven innovation that accelerates transformation and unlocks long-term business value</p>
+      <div class="actions"><a class="btn primary" href="#focus">Explore capabilities</a><a class="btn" href="#spotlight">See spotlight</a></div>
+    </div>
+    <div class="orbital glass" aria-label="Digital services ecosystem">
+      <div class="node n1">Cloud & Platform Engineering</div><div class="node n2">Data, AI & Automation</div><div class="node n3">Experience & Engagement</div><div class="node n4">Managed Operations</div>
+    </div>
+  </section>
+
+  <section class="section focus industry-focus" id="focus">
+    <div class="focus-head">
+      <div>
+        <div class="eyebrow">Find Your Focus</div>
+        <h2 class="grad">Choose the industry path that fits your agenda.</h2>
+      </div>
+      <p class="copy">Explore Infinite’s industry priorities through a minimal horizontal marquee. Use the controls to browse all nine focus areas.</p>
+    </div>
+
+    <div class="industry-shell">
+      <div class="industry-controls" aria-label="Industry carousel controls">
+        <button class="industry-btn" type="button" data-industry-prev aria-label="Previous industry">‹</button>
+       
+        <button class="industry-btn" type="button" data-industry-next aria-label="Next industry">›</button>
+      </div>
+
+      <div class="industry-marquee" data-industry-track>
+        <div class="industry-row">
+          <article class="industry-card"><span class="industry-icon">📡</span><h3>Telecom</h3><p>OSS/BSS, digital care, network intelligence and managed operations.</p></article>
+          <article class="industry-card"><span class="industry-icon">⚡</span><h3>Utilities</h3><p>Grid modernization, data platforms, field operations and AI-led insights.</p></article>
+          <article class="industry-card"><span class="industry-icon">🏥</span><h3>Healthcare</h3><p>Patient engagement, interoperability, analytics and secure digital platforms.</p></article>
+          <article class="industry-card"><span class="industry-icon">🏦</span><h3>Banking</h3><p>Digital onboarding, risk intelligence, core modernization and compliance.</p></article>
+          <article class="industry-card"><span class="industry-icon">🛡️</span><h3>Insurance</h3><p>Claims automation, customer portals, data engineering and operations.</p></article>
+          <article class="industry-card"><span class="industry-icon">🛒</span><h3>Retail</h3><p>Omnichannel commerce, personalization, loyalty and inventory intelligence.</p></article>
+          <article class="industry-card"><span class="industry-icon">🏭</span><h3>Manufacturing</h3><p>Connected operations, predictive quality, ERP modernization and analytics.</p></article>
+          <article class="industry-card"><span class="industry-icon">🎬</span><h3>Media</h3><p>Content platforms, subscriber journeys, streaming operations and insights.</p></article>
+          <article class="industry-card"><span class="industry-icon">🚚</span><h3>Logistics</h3><p>Supply chain visibility, route intelligence, automation and cloud platforms.</p></article>
+        </div>
+        <div class="industry-row" aria-hidden="true">
+          <article class="industry-card"><span class="industry-icon">📡</span><h3>Telecom</h3><p>OSS/BSS, digital care, network intelligence and managed operations.</p></article>
+          <article class="industry-card"><span class="industry-icon">⚡</span><h3>Utilities</h3><p>Grid modernization, data platforms, field operations and AI-led insights.</p></article>
+          <article class="industry-card"><span class="industry-icon">🏥</span><h3>Healthcare</h3><p>Patient engagement, interoperability, analytics and secure digital platforms.</p></article>
+          <article class="industry-card"><span class="industry-icon">🏦</span><h3>Banking</h3><p>Digital onboarding, risk intelligence, core modernization and compliance.</p></article>
+          <article class="industry-card"><span class="industry-icon">🛡️</span><h3>Insurance</h3><p>Claims automation, customer portals, data engineering and operations.</p></article>
+          <article class="industry-card"><span class="industry-icon">🛒</span><h3>Retail</h3><p>Omnichannel commerce, personalization, loyalty and inventory intelligence.</p></article>
+          <article class="industry-card"><span class="industry-icon">🏭</span><h3>Manufacturing</h3><p>Connected operations, predictive quality, ERP modernization and analytics.</p></article>
+          <article class="industry-card"><span class="industry-icon">🎬</span><h3>Media</h3><p>Content platforms, subscriber journeys, streaming operations and insights.</p></article>
+          <article class="industry-card"><span class="industry-icon">🚚</span><h3>Logistics</h3><p>Supply chain visibility, route intelligence, automation and cloud platforms.</p></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section spotlight-section" id="spotlight">
+    <div class="spotlight-top">
+      <div>
+        <div class="eyebrow">Spotlight</div>
+        <h2 class="grad">See the latest from Infinite.</h2>
+      </div>
+      <div class="spotlight-nav" aria-label="Spotlight carousel controls">
+        <button class="spot-btn" type="button" data-spot-prev aria-label="Previous spotlight">‹</button>
+        <button class="spot-btn" type="button" data-spot-next aria-label="Next spotlight">›</button>
+      </div>
+    </div>
+
+    <div class="spotlight-stage">
+      <div class="spotlight-track" data-spot-track>
+        <article class="spot-card is-large">
+          <div class="spot-img img-city"></div>
+          <div class="spot-content">
+            <h3>Network Modernization with Cloud-Native Core</h3>
+            <span class="spot-arrow">→</span>
+          </div>
+        </article>
+        <article class="spot-card">
+          <div class="spot-img img-ocean"></div>
+          <div class="spot-content">
+            <h3>Sustainability in Telecom Operations</h3>
+            <span class="spot-arrow">→</span>
+          </div>
+        </article>
+        <article class="spot-card">
+          <div class="spot-img img-leader"></div>
+          <div class="spot-content">
+            <h3>CTO Perspectives: AI at the Core</h3>
+            <span class="spot-arrow">→</span>
+          </div>
+        </article>
+        <article class="spot-card">
+          <div class="spot-img img-mobile"></div>
+          <div class="spot-content">
+            <h3>Elevating Customer Experience with AI</h3>
+            <span class="spot-arrow">→</span>
+          </div>
+        </article>
+        <article class="spot-card is-slim">
+          <div class="spot-img img-blue"></div>
+          <div class="spot-content">
+            <h3>Digital Platforms at Scale</h3>
+            <span class="spot-arrow">→</span>
+          </div>
+        </article>
+        <article class="spot-card is-slim">
+          <div class="spot-img img-sand"></div>
+          <div class="spot-content">
+            <h3>Modern Data Foundations</h3>
+            <span class="spot-arrow">→</span>
+          </div>
+        </article>
+      </div>
+      <div class="spot-progress" aria-hidden="true"><span class="active"></span><span></span><span></span></div>
+    </div>
+  </section>
+
+  <section class="section innovation-stories" id="innovation">
+    <div class="innovation-head">
+      <div>
+        <div class="eyebrow">Innovation in Action · Core Business</div>
+        <h2 class="grad">Digital capabilities mapped to core business priorities.</h2>
+      </div>
+      <div class="innovation-nav" aria-label="Core business carousel controls">
+        <button class="innovation-btn" type="button" data-core-prev aria-label="Previous core business story">←</button>
+        <button class="innovation-btn primary-nav" type="button" data-core-next aria-label="Next core business story">→</button>
+      </div>
+    </div>
+
+    <div class="core-story-stage">
+      <div class="core-story-track" data-core-track>
+        <article class="core-story-card">
+          <div class="core-story-visual visual-revenue"><span class="visual-mark">DX</span></div>
+          <div class="core-story-copy">
+            <h3>Digital Sales & Commerce</h3>
+            <p>Improve acquisition, quote-to-order journeys, product configuration and customer self-service.</p>
+            <a href="#capabilities">Explore revenue transformation ›</a>
+          </div>
+        </article>
+        <article class="core-story-card">
+          <div class="core-story-visual visual-ops"><span class="visual-mark">AI</span></div>
+          <div class="core-story-copy">
+            <h3>Service Operations</h3>
+            <p>Reduce manual effort with workflow automation, knowledge management and AI-assisted resolution.</p>
+            <a href="#capabilities">Explore service operations ›</a>
+          </div>
+        </article>
+        <article class="core-story-card">
+          <div class="core-story-visual visual-modern"><span class="visual-mark">API</span></div>
+          <div class="core-story-copy">
+            <h3>Application Modernization</h3>
+            <p>Refactor, re-platform and modernize applications with API-first, cloud-native engineering.</p>
+            <a href="#capabilities">Explore modernization ›</a>
+          </div>
+        </article>
+        <article class="core-story-card">
+          <div class="core-story-visual visual-data"><span class="visual-mark">∞</span></div>
+          <div class="core-story-copy">
+            <h3>Data-led Decisions</h3>
+            <p>Unify data foundations and analytics to support faster, better enterprise decisions.</p>
+            <a href="#capabilities">Explore data intelligence ›</a>
+          </div>
+        </article>
+        <article class="core-story-card">
+          <div class="core-story-visual visual-cx"><span class="visual-mark">CX</span></div>
+          <div class="core-story-copy">
+            <h3>Customer Experience</h3>
+            <p>Personalized portals, mobile journeys and service insights that increase engagement.</p>
+            <a href="#engagement">Explore experience design ›</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section capability-stories" id="capabilities">
+    <div class="capability-stories-head">
+      <div>
+        <div class="eyebrow">Innovation in Action · Capabilities</div>
+        <h2 class="grad">From advisory to build to operate.</h2>
+      </div>
+      <a class="capability-cta" href="#engagement">Explore engagement model <span>→</span></a>
+    </div>
+
+    <div class="capability-showcase" data-capability-showcase>
+      <article class="capability-feature-card" data-capability-feature>
+        <div class="capability-feature-art cap-art-assessment" data-capability-art>
+          <span class="capability-feature-number" data-capability-number>01</span>
+        </div>
+        <div class="capability-feature-panel">
+          <div class="capability-meta" data-capability-meta>ADVISORY · ROADMAPS · VALUE CASES</div>
+          <h3 data-capability-title>Strategy & Assessment</h3>
+          <p data-capability-copy>Diagnostic assessments, roadmaps, architecture blueprints and business case support to define the right transformation path.</p>
+          <a href="#engagement" data-capability-link>Explore strategy advisory <span>→</span></a>
+        </div>
+      </article>
+
+      <div class="capability-list" aria-label="Capability story list">
+        <article class="capability-list-item active" tabindex="0" data-capability-item data-title="Strategy & Assessment" data-number="01" data-meta="ADVISORY · ROADMAPS · VALUE CASES" data-copy="Diagnostic assessments, roadmaps, architecture blueprints and business case support to define the right transformation path." data-link="Explore strategy advisory" data-art="cap-art-assessment">
+          <div class="capability-thumb cap-art-assessment"><span>01</span></div>
+          <div><h3>Strategy & Assessment</h3><p>Diagnostic assessments, architecture blueprints and business case support.</p></div>
+        </article>
+        <article class="capability-list-item" tabindex="0" data-capability-item data-title="Product Engineering" data-number="02" data-meta="BUILD · DEVSECOPS · DIGITAL PRODUCTS" data-copy="Full-stack development, DevSecOps, APIs, microservices and platform modernization delivered through agile product teams." data-link="Explore product engineering" data-art="cap-art-engineering">
+          <div class="capability-thumb cap-art-engineering"><span>02</span></div>
+          <div><h3>Product Engineering</h3><p>Full-stack development, APIs, microservices and platform modernization.</p></div>
+        </article>
+        <article class="capability-list-item" tabindex="0" data-capability-item data-title="Cloud & Infrastructure" data-number="03" data-meta="CLOUD · RELIABILITY · OBSERVABILITY" data-copy="Cloud migration, reliability engineering, observability and infrastructure optimization for resilient enterprise platforms." data-link="Explore cloud modernization" data-art="cap-art-cloud">
+          <div class="capability-thumb cap-art-cloud"><span>03</span></div>
+          <div><h3>Cloud & Infrastructure</h3><p>Cloud migration, reliability engineering and infrastructure optimization.</p></div>
+        </article>
+        <article class="capability-list-item" tabindex="0" data-capability-item data-title="Data & AI" data-number="04" data-meta="DATA · GENAI · AUTOMATION" data-copy="Data engineering, analytics, GenAI assistants, prediction models and automation accelerators embedded into daily workflows." data-link="Explore data and AI" data-art="cap-art-ai">
+          <div class="capability-thumb cap-art-ai"><span>04</span></div>
+          <div><h3>Data & AI</h3><p>Analytics, GenAI assistants, prediction models and automation accelerators.</p></div>
+        </article>
+        <article class="capability-list-item" tabindex="0" data-capability-item data-title="Experience Design" data-number="05" data-meta="UX · PORTALS · OMNICHANNEL" data-copy="Human-centered UX, portals, mobile experiences and omnichannel engagement journeys that make adoption easier." data-link="Explore experience design" data-art="cap-art-experience">
+          <div class="capability-thumb cap-art-experience"><span>05</span></div>
+          <div><h3>Experience Design</h3><p>Human-centered UX, portals, mobile and omnichannel engagement.</p></div>
+        </article>
+        <article class="capability-list-item" tabindex="0" data-capability-item data-title="Managed Services" data-number="06" data-meta="OPERATE · SLA · CONTINUOUS IMPROVEMENT" data-copy="Follow-the-sun support, SLA governance, incident management and continuous improvement for stable operations." data-link="Explore managed services" data-art="cap-art-managed">
+          <div class="capability-thumb cap-art-managed"><span>06</span></div>
+          <div><h3>Managed Services</h3><p>Follow-the-sun support, SLA governance and continuous improvement.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="user-engagement-stories" id="engagement">
+    <div class="engagement-wrap">
+      <div class="eyebrow">User Engagement</div>
+      <h2 class="grad">Create journeys users want to complete.</h2>
+      <p class="engagement-intro">A focused video-style section for practical AI engagement stories — from guided digital journeys to always-on service intelligence.</p>
+
+      <div class="engagement-video-grid">
+        <article class="engagement-video-card">
+          <div class="engagement-video-art art-agent">
+            <span class="featured-pill">Featured</span>
+            <div class="agent-title-art"><span>Meet</span><strong>Digital Journey AI</strong></div>
+          </div>
+          <div class="engagement-video-copy">
+            <h3>Personalized digital journeys that guide every user to the next best action</h3>
+            <p>Design role-based, channel-aware experiences that simplify discovery, support, transactions and adoption across customer, partner and associate touchpoints.</p>
+            <a class="watch-cta" href="#news">Watch now <span>•</span></a>
+          </div>
+        </article>
+
+        <article class="engagement-video-card">
+          <div class="engagement-video-art art-action">
+            <span class="featured-pill">Featured</span>
+            <div class="speaker-panel" aria-hidden="true">
+              <div class="speaker"><span class="speaker-label"><b>Journey Lead</b>Experience Strategy</span></div>
+              <div class="speaker"><span class="speaker-label"><b>AI Ops Lead</b>Service Intelligence</span></div>
+            </div>
+          </div>
+          <div class="engagement-video-copy">
+            <h3>From search to action: making service intelligence work in practice</h3>
+            <p>Blend knowledge search, AI recommendations, dashboards and proactive alerts to reduce friction, accelerate resolution and improve user satisfaction.</p>
+            <a class="watch-cta" href="#news">Watch now <span>•</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section partner-orbit-section" id="leaders">
+    <div class="partner-wrap">
+      <div class="partner-copy">
+        <div class="eyebrow">Trusted by Global Leaders</div>
+        <h2>Move faster with Infinite partners</h2>
+        <p>Built for complex enterprises and regulated industries. Engage specialists across cloud, data, AI, operations and experience transformation so your teams can move from strategy to measurable execution faster.</p>
+        <div class="partner-actions">
+          <a class="partner-primary" href="#footer">Explore partner ecosystem <span>›</span></a>
+          <a class="partner-secondary" href="#career">Contact our team <span>›</span></a>
+        </div>
+      </div>
+
+      <div class="partner-orbit" aria-label="Animated trusted leader and partner ecosystem">
+        <div class="partner-wave"></div>
+        <a href="https://www.brightspeed.com/" class="logo-bubble insight b2" target="_blank" rel="noopener noreferrer"><img src="brightspeed-logo.svg" alt="Brightspeed"></a>
+        <a href="https://www.salesforce.com/" class="logo-bubble blue b3" target="_blank" rel="noopener noreferrer"><img src="salesforce-logo.svg" alt="Salesforce"></a>
+        <a href="https://www.verizon.com/" class="logo-bubble white2 b4" target="_blank" rel="noopener noreferrer"><img src="verizon-logo.svg" alt="Verizon"></a>
+        <a href="https://www.ironmountain.com/" class="logo-bubble white2 b5" target="_blank" rel="noopener noreferrer"><img src="iron-mountain-logo.svg" alt="Iron Mountain"></a>
+        <a href="https://www.lla.com/" class="logo-bubble black b6" target="_blank" rel="noopener noreferrer"><img src="lla-logo.svg" alt="LLA"></a>
+        <a href="https://www.deloitte.com/" class="logo-bubble black b7" target="_blank" rel="noopener noreferrer"><img src="deloitte-logo.svg" alt="Deloitte"></a>
+        <a href="https://www.accenture.com/" class="logo-bubble white2 b8" target="_blank" rel="noopener noreferrer"><img src="accenture-logo.svg" alt="Accenture"></a>
+        <a href="https://www.cts.com/" class="logo-bubble black b9" target="_blank" rel="noopener noreferrer"><img src="cts-logo.svg" alt="CTS"></a>
+        <a href="https://www.nova.com/" class="logo-bubble purple b10" target="_blank" rel="noopener noreferrer"><img src="nova-logo.svg" alt="Nova"></a>
+        <a href="https://www.pwc.com/" class="logo-bubble white2 b11" target="_blank" rel="noopener noreferrer"><img src="pwc-logo.svg" alt="PWC"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="news">
+    <div class="eyebrow">Latest News</div><h2 class="grad">Stories, insights and updates from the Infinite ecosystem.</h2>
+    <div class="news-grid">
+      <article class="news-card glass"><span class="tag">Featured</span><div><h3>AI-led transformation programs move from pilots to enterprise scale</h3><p>Organizations are prioritizing practical AI use cases tied to service quality, cost and productivity.</p></div><a class="btn" href="#">Read more</a></article>
+      <article class="news-card glass"><span class="tag">Insight</span><div><h3>Modern operations need integrated data foundations</h3><p>Reliable automation depends on clean data, clear ownership and measurable governance.</p></div><a class="btn" href="#">Explore</a></article>
+      <article class="news-card glass"><span class="tag">Update</span><div><h3>Engineering teams accelerate cloud-native delivery</h3><p>Reusable components, DevSecOps and observability improve delivery velocity and resilience.</p></div><a class="btn" href="#">View update</a></article>
+    </div>
+  </section>
+
+  <section class="section career" id="career">
+    <article><div class="eyebrow">Career</div><h2 class="grad">Build the next chapter of enterprise technology.</h2><p class="copy">Join multidisciplinary teams working across consulting, engineering, data, AI, cloud and managed services for global clients.</p></article>
+    <article class="career-card glass"><h3>Open pathways</h3><div class="jobs" style="margin-top:22px"><div class="job"><span>Cloud Engineer</span><b>Apply</b></div><div class="job"><span>Data & AI Consultant</span><b>Apply</b></div><div class="job"><span>Full-stack Developer</span><b>Apply</b></div><div class="job"><span>Service Delivery Lead</span><b>Apply</b></div></div></article>
+  </section>
+
+  <section class="section" id="impact">
+    <div class="eyebrow">Impact</div><h2 class="grad">Measurable value across transformation programs.</h2>
+    <div class="impact-grid"><article class="impact-card glass"><b>Faster</b><p>Accelerated release cycles and delivery execution.</p></article><article class="impact-card glass"><b>Lean</b><p>Automation-led productivity and operational efficiency.</p></article><article class="impact-card glass"><b>Stable</b><p>Improved reliability, observability and incident response.</p></article><article class="impact-card glass"><b>Smart</b><p>AI and analytics embedded into daily decisions.</p></article></div>
+  </section>
+</main>
+<footer class="footer" id="footer">
+  <div class="foot-grid"><div><a class="logo" href="#"><span class="mark"></span><span>Infinite</span></a><p>Engineering digital transformation with consulting, cloud, data, AI and managed services.</p></div><div><h4>Explore</h4><a href="#focus">Find Your Focus</a><a href="#innovation">Innovation</a><a href="#news">News</a></div><div><h4>Capabilities</h4><a href="#capabilities">Engineering</a><a href="#engagement">Engagement</a><a href="#impact">Impact</a></div><div><h4>Connect</h4><a href="#career">Careers</a><a href="mailto:info@infinite.com">info@infinite.com</a><a href="#hero">Back to top</a></div></div>
+  <div class="copyright"><span>© 2026 Infinite. All rights reserved.</span><span>Privacy · Terms · Accessibility</span></div>
+</footer>
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length>1){e.preventDefault();document.querySelector(id)?.scrollIntoView({behavior:'smooth'});}}));
+
+const industryTrack=document.querySelector('[data-industry-track]');
+const prevIndustry=document.querySelector('[data-industry-prev]');
+const nextIndustry=document.querySelector('[data-industry-next]');
+const toggleIndustry=document.querySelector('[data-industry-toggle]');
+function nudgeIndustry(direction){
+  if(!industryTrack) return;
+  industryTrack.classList.add('paused');
+  industryTrack.style.transition='transform .45s ease';
+  industryTrack.style.transform=`translateX(${direction*234}px)`;
+  window.setTimeout(()=>{industryTrack.style.transition='';industryTrack.style.transform='';},470);
+}
+prevIndustry?.addEventListener('click',()=>nudgeIndustry(1));
+nextIndustry?.addEventListener('click',()=>nudgeIndustry(-1));
+toggleIndustry?.addEventListener('click',()=>{
+  if(!industryTrack) return;
+  industryTrack.classList.toggle('paused');
+  toggleIndustry.textContent=industryTrack.classList.contains('paused')?'Play':'Pause';
+});
+
+const spotTrack=document.querySelector('[data-spot-track]');
+const spotPrev=document.querySelector('[data-spot-prev]');
+const spotNext=document.querySelector('[data-spot-next]');
+function moveSpot(direction){
+  if(!spotTrack) return;
+  const firstCard=spotTrack.querySelector('.spot-card');
+  const step=(firstCard?.getBoundingClientRect().width || 320)+16;
+  spotTrack.scrollBy({left:direction*step,behavior:'smooth'});
+}
+spotPrev?.addEventListener('click',()=>moveSpot(-1));
+spotNext?.addEventListener('click',()=>moveSpot(1));
+
+
+const coreTrack=document.querySelector('[data-core-track]');
+const corePrev=document.querySelector('[data-core-prev]');
+const coreNext=document.querySelector('[data-core-next]');
+function moveCore(direction){
+  if(!coreTrack) return;
+  const firstCard=coreTrack.querySelector('.core-story-card');
+  const gap=22;
+  const step=(firstCard?.getBoundingClientRect().width || 320)+gap;
+  coreTrack.scrollBy({left:direction*step,behavior:'smooth'});
+}
+corePrev?.addEventListener('click',()=>moveCore(-1));
+coreNext?.addEventListener('click',()=>moveCore(1));
+
+
+const capabilityFeature=document.querySelector('[data-capability-feature]');
+const capabilityArt=document.querySelector('[data-capability-art]');
+const capabilityNumber=document.querySelector('[data-capability-number]');
+const capabilityTitle=document.querySelector('[data-capability-title]');
+const capabilityMeta=document.querySelector('[data-capability-meta]');
+const capabilityCopy=document.querySelector('[data-capability-copy]');
+const capabilityLink=document.querySelector('[data-capability-link]');
+const capabilityItems=document.querySelectorAll('[data-capability-item]');
+function activateCapability(item){
+  if(!item || !capabilityArt) return;
+  capabilityItems.forEach(el=>el.classList.toggle('active', el===item));
+  capabilityArt.style.opacity='0';
+  capabilityArt.style.transform='scale(1.015)';
+  window.setTimeout(()=>{
+    capabilityArt.className='capability-feature-art '+item.dataset.art;
+    capabilityNumber.textContent=item.dataset.number;
+    capabilityTitle.textContent=item.dataset.title;
+    capabilityMeta.textContent=item.dataset.meta;
+    capabilityCopy.textContent=item.dataset.copy;
+    capabilityLink.innerHTML=item.dataset.link+' <span>→</span>';
+    capabilityArt.style.opacity='1';
+    capabilityArt.style.transform='scale(1)';
+  },140);
+}
+capabilityItems.forEach(item=>{
+  item.addEventListener('mouseenter',()=>activateCapability(item));
+  item.addEventListener('focus',()=>activateCapability(item));
+  item.addEventListener('click',()=>activateCapability(item));
+});
+
+
+
+// Premium UX polish: reveal-on-scroll, active section state, and back-to-top affordance.
+const revealTargets=[...document.querySelectorAll('main section, footer, .news-card, .impact-card, .career-card, .industry-card, .core-story-card')];
+revealTargets.forEach(el=>el.classList.add('reveal'));
+const revealObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in');revealObserver.unobserve(entry.target);}});
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+revealTargets.forEach(el=>revealObserver.observe(el));
+
+const topButton=document.createElement('a');
+topButton.className='back-to-top';
+topButton.href='#hero';
+topButton.setAttribute('aria-label','Back to top');
+topButton.textContent='↑';
+document.body.appendChild(topButton);
+window.addEventListener('scroll',()=>{topButton.classList.toggle('show',window.scrollY>520);},{passive:true});
+
+const sectionIds=[...document.querySelectorAll('main section[id]')].map(s=>s.id);
+const navLinks=[...document.querySelectorAll('header nav a')];
+const navObserver=new IntersectionObserver((entries)=>{
+  const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+  if(!visible) return;
+  navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+visible.target.id));
+},{threshold:[.18,.35,.55]});
+sectionIds.forEach(id=>{const el=document.getElementById(id); if(el) navObserver.observe(el);});
+
+</script>
+
+<script>
+(function(){
+  const themeToggle = document.getElementById('themeToggle');
+  if(!themeToggle) return;
+
+  const applyTheme = (theme) => {
+    const isLight = theme === 'light';
+    document.body.classList.toggle('light-mode', isLight);
+    themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+  };
+
+  const savedTheme = localStorage.getItem('infinite-theme');
+  if(savedTheme === 'light' || savedTheme === 'dark'){
+    applyTheme(savedTheme);
+  }
+
+  themeToggle.addEventListener('click', () => {
+    const nextTheme = document.body.classList.contains('light-mode') ? 'dark' : 'light';
+    localStorage.setItem('infinite-theme', nextTheme);
+    applyTheme(nextTheme);
+  });
+})();
+</script>
+
+</body>
+</html>
